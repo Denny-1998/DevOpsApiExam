@@ -4,6 +4,24 @@ pipeline{
         pollSCM("* * * * *")
     }
     stages{
+        stage("deliverToDockerHub") {
+            steps {
+                echo "delivering to docker hub"
+                
+            }
+        }
+        stage("docker compose setup") {
+            steps {
+                sh "docker-compose -f docker-compose.yml up -d"
+            }
+        }
+        stage("execute system tests") {
+            steps {
+                echo "not doing much for now "
+            }
+        }
+
+
         stage("Build1"){
             steps{
                 echo "========Build========"
