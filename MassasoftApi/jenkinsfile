@@ -26,5 +26,12 @@ pipeline{
                 
             }
         }
+
+        stage ("run"){
+            steps{
+                echo "========Run========"
+                sh "dotnet run"
+            }
+        }
     }
 }
