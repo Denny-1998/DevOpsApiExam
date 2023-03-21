@@ -6,31 +6,21 @@ pipeline{
     stages{
         stage("deliverToDockerHub") {
             steps {
-                echo "delivering to docker hub"
+                echo "delivering to docker hub (coming soon)"
                 
             }
         }
-
-
-        stage("execute system tests") {
-            steps {
-                echo "not doing much for now "
-            }
-        }
-
 
         stage("Build1"){
             steps{
                 echo "========Build========"
                 sh "dotnet build"
-                
             }
         }
 
         stage ("run"){
             steps{
                 echo "========Run========"
-                sh "ls"
                 sh "dotnet run --project MassasoftApi/MassasoftApi.csproj"
             }
         }
