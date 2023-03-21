@@ -10,11 +10,13 @@ pipeline{
                 
             }
         }
+
         stage("docker compose setup") {
             steps {
                 sh "docker-compose -f docker-compose.yml up -d"
             }
         }
+
         stage("execute system tests") {
             steps {
                 echo "not doing much for now "
@@ -28,28 +30,6 @@ pipeline{
                 sh "dotnet build"
                 
             }
-            post{
-                always{
-                    echo "========always========"
-                }
-                success{
-                    echo "========A executed successfully========"
-                }
-                failure{
-                    echo "========A execution failed========"
-                }
-            }
-        }
-    }
-    post{
-        always{
-            echo "========always========"
-        }
-        success{
-            echo "========pipeline executed successfully ========"
-        }
-        failure{
-            echo "========pipeline execution failed========"
         }
     }
 }
