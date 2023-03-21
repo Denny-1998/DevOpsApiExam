@@ -11,11 +11,6 @@ pipeline{
             }
         }
 
-        stage("docker compose setup") {
-            steps {
-                sh "docker-compose -f docker-compose.yml up -d"
-            }
-        }
 
         stage("execute system tests") {
             steps {
