@@ -31,7 +31,8 @@ pipeline{
             steps{
                 echo "========Run========"
                 sh "ls"
-                sh "dotnet run MassasoftApi/MassasoftApi.csproj"
+                sh "cd MassasoftApi"
+                sh "dotnet run"
             }
         }
     }
