@@ -7,6 +7,8 @@ WORKDIR /app
 # Copy the rest of the code
 COPY . .
 
+RUN dotnet dev-certs https
+
 RUN dotnet run MassasoftApiTest/MassasoftApiTest.csproj
 
 
