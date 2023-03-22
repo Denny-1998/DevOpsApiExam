@@ -24,7 +24,10 @@ namespace MassasoftApiTest
         {
             string test = "-----------------Testing--------------------";
             Console.WriteLine(test);
-            Assert.IsNotNull(test);
+
+            bool actual = false;
+
+            Assert.IsTrue(actual);
         }
     }
 }
