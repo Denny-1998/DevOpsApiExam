@@ -1,15 +1,25 @@
-version: "3.3"
-
+version: '3'
 services:
-    api:
-        hostname: api-host
-        restart: always
-        image: massasoft-nginx
-    database:
-        hostname: api-database
-        restart: always
-        image: mysql
-        depends_on:
-            - api
-        ports:
-            - "3306:3306"
+  db:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: Massasoft
+      MYSQL_USER: massasoftuser
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+  web:
+    build: .
+    ports:
+      - "80:80"
+    depends_on:
+      - db
+    command: ["dotnet", "MassasoftApi.dll"]
+    environment:
+      - ConnectionStrings__Default=server=db;database=Massasoft;uid=massasoftuser;password=password
+volumes:
+  db_data:
