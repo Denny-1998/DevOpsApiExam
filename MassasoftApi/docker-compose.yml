@@ -18,7 +18,7 @@ services:
       - "80:80"
     depends_on:
       - db
-    command: ["dotnet", "MassasoftApi.dll"]
+    command: ["dotnet", "MassasoftApi.csproj"]
     environment:
       - ConnectionStrings__Default=server=db;database=Massasoft;uid=massasoftuser;password=password
 volumes:
