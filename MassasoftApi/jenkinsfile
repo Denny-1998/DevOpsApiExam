@@ -10,14 +10,14 @@ pipeline{
                 
             }
         }
-
+        /*
         stage("start docker containers"){
             steps{
                 echo "========starting up docker environment========"
                 sh "docker-compose -f MassasoftApi/docker-compose.yml up -d"
             }
         }
-
+        */
         stage ("run"){
             steps{
                 echo "========Run========"
