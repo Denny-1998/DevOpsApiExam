@@ -20,7 +20,7 @@ RUN dotnet publish -c Release -o out
 FROM mcr.microsoft.com/dotnet/aspnet:5.0
 
 # Set the working directory
-WORKDIR /app
+WORKDIR /app/MassasoftApiTest
 
 # Copy the published output from the previous build
 COPY --from=build-env /app/out .
@@ -35,4 +35,4 @@ RUN apt-get update && \
 #COPY ./MassasoftApi/db/migrations /migrations
 
 # Set the entry point
-ENTRYPOINT ["dotnet", "MassasoftApiTest/MassasoftApiTest.csproj"]
+ENTRYPOINT ["dotnet", "MassasoftApiTest.csproj"]
