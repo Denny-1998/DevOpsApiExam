@@ -18,5 +18,13 @@ namespace MassasoftApiTest
             Assert.AreEqual(expected, actual);
 
         }
+
+        [TestMethod]
+        public void PrintTest() 
+        {
+            string test = "-----------------Testing--------------------";
+            Console.WriteLine(test);
+            Assert.IsNotNull(test);
+        }
     }
 }
