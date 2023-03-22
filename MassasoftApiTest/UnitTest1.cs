@@ -6,6 +6,7 @@ namespace MassasoftApiTest
         [TestMethod]
         public void TestMethod1()
         {
+            Console.WriteLine("testing...");
         }
     }
 }

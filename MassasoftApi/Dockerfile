@@ -5,7 +5,7 @@ FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build-env
 WORKDIR /app
 
 # Copy the project file
-COPY MassasoftApi/MassasoftApi.csproj .
+COPY MassasoftApiTest/MassasoftApiTest.csproj .
 
 # Restore packages
 RUN dotnet restore
@@ -35,4 +35,4 @@ RUN apt-get update && \
 COPY MassasoftApi/db/migrations /migrations
 
 # Set the entry point
-ENTRYPOINT ["dotnet", "MassasoftApi.csproj"]
+ENTRYPOINT ["dotnet", "MassasoftApiTest.dll"]
