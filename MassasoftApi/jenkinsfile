@@ -4,12 +4,7 @@ pipeline{
         pollSCM("* * * * *")
     }
     stages{
-        stage("deliverToDockerHub") {
-            steps {
-                echo "delivering to docker hub (coming soon)"
-                
-            }
-        }
+        
         /*
         stage("start docker containers"){
             steps{
@@ -24,12 +19,13 @@ pipeline{
                 sh "dotnet run --project MassasoftApiTest/MassasoftApiTest.csproj"
             }
         }
-
+        /*
         stage('Migrate') {
             steps {
                 sh 'docker run --rm --network="host" -v "$(pwd)/db/migrations:/flyway/sql" flyway/flyway:7.15.0 -user=massasoftuser -password=password -url=jdbc:mysql://localhost:3306/Massasoft -locations=filesystem:/flyway/sql migrate'
             }
         }
+        */
     }
     post {
         cleanup {
