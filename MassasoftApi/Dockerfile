@@ -8,19 +8,10 @@ WORKDIR /app
 COPY . .
 
 RUN dotnet run MassasoftApiTest/MassasoftApiTest.csproj
-#
-## Build the app
-#RUN dotnet publish -c Release -o out
-#
-## Build runtime image
-#FROM mcr.microsoft.com/dotnet/aspnet:5.0
-#
-## Set the working directory
-#WORKDIR /app/MassasoftApiTest
-#
-## Copy the published output from the previous build
-#COPY --from=build-env /app/out .
-#
+
+
+
+
 ## Install Flyway
 #RUN apt-get update && \
     #apt-get install -y wget && \
@@ -29,7 +20,6 @@ RUN dotnet run MassasoftApiTest/MassasoftApiTest.csproj
 #
 ## Copy the database migration scripts
 ##COPY ./MassasoftApi/db/migrations /migrations
-#
-## Set the entry point
-#ENTRYPOINT ["dotnet", "MassasoftApiTest.csproj"]
-#
+
+# Set the entry point
+ENTRYPOINT ["dotnet", "MassasoftApiTest.dll"]
