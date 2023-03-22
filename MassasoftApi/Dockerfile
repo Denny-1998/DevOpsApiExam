@@ -35,4 +35,4 @@ RUN apt-get update && \
 COPY db/migrations /migrations
 
 # Set the entry point
-ENTRYPOINT ["dotnet", "MassasoftApi.dll"]
+ENTRYPOINT ["dotnet", "MassasoftApi.csproj"]
