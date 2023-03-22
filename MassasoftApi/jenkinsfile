@@ -11,10 +11,10 @@ pipeline{
             }
         }
 
-        stage("Build1"){
+        stage("start docker containers"){
             steps{
-                echo "========Build========"
-                sh "dotnet build"
+                echo "========starting up docker environment========"
+                sh "docker-compose -f docker-compose.yml up -d"
             }
         }
 
@@ -23,6 +23,12 @@ pipeline{
                 echo "========Run========"
                 sh "dotnet run --project MassasoftApi/MassasoftApi.csproj"
             }
+        }
+    }
+    post {
+        cleanup {
+            echo "cleaning up the docker environment"
+            sh script: "docker-compose -f docker-compose.yml down", returnStatus:true
         }
     }
 }

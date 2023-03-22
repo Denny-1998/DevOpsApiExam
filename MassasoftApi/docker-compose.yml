@@ -1,0 +1,15 @@
+version: "3.3"
+
+services:
+    api:
+        hostname: api-host
+        restart: always
+        image: massasoft-nginx
+    database:
+        hostname: api-database
+        restart: always
+        image: mysql
+        depends_on:
+            - api
+        ports:
+            - "3306:3306"
