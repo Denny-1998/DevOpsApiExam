@@ -9,7 +9,7 @@ COPY . .
 
 RUN dotnet dev-certs https
 
-RUN dotnet run MassasoftApiTest/MassasoftApiTest.csproj
+RUN dotnet run MassasoftApi/MassasoftApi.csproj
 
 
 
@@ -24,4 +24,4 @@ RUN dotnet run MassasoftApiTest/MassasoftApiTest.csproj
 ##COPY ./MassasoftApi/db/migrations /migrations
 
 # Set the entry point
-ENTRYPOINT ["dotnet", "MassasoftApiTest.dll"]
+ENTRYPOINT ["dotnet", "MassasoftApi.dll"]
