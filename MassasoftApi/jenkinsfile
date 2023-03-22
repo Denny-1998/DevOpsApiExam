@@ -14,7 +14,7 @@ pipeline{
         stage("start docker containers"){
             steps{
                 echo "========starting up docker environment========"
-                sh "docker-compose -f ./docker-compose.yml up -d"
+                sh "docker-compose -f MassasoftApi/docker-compose.yml up -d"
             }
         }
 
@@ -28,7 +28,7 @@ pipeline{
     post {
         cleanup {
             echo "cleaning up the docker environment"
-            sh script: "docker-compose -f ./docker-compose.yml down", returnStatus:true
+            sh script: "docker-compose -f MassasoftApi/docker-compose.yml down", returnStatus:true
         }
     }
 }
