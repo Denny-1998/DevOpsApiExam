@@ -4,35 +4,24 @@ pipeline{
         pollSCM("* * * * *")
     }
     stages{
-        stage('Build') {
+        stage("deliverToDockerHub") {
             steps {
-                echo "docker build"
-                sh 'docker build -t massasoftapi .'
+                echo "delivering to docker hub (coming soon)"
+                
             }
         }
-        
-        stage('Test') {
-            steps {
-                echo "test"
-                sh 'docker run --rm massasoftapi dotnet test'
+
+        stage("start docker containers"){
+            steps{
+                echo "========starting up docker environment========"
+                sh "docker-compose -f MassasoftApi/docker-compose.yml up -d"
             }
         }
-        
-        stage('Migrate') {
-            steps {
-                echo "migration with flyway"
-                sh 'docker run --rm --network="host" -v "$(pwd)/db/migrations:/flyway/sql" flyway/flyway:7.15.0 -user=massasoftuser -password=password -url=jdbc:mysql://localhost:3306/Massasoft -locations=filesystem:/flyway/sql migrate'
-            }
-        }
-        
-        stage('Push') {
-            steps {
-                echo "push to docker hub"
-                withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
-                    sh 'docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD'
-                }
-                sh 'docker tag massasoftapi $DOCKER_USERNAME/massasoftapi'
-                sh 'docker push $DOCKER_USERNAME/massasoftapi'
+
+        stage ("run"){
+            steps{
+                echo "========Run========"
+                sh "dotnet run --project MassasoftApi/MassasoftApi.csproj"
             }
         }
     }
