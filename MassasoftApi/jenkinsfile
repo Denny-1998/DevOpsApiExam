@@ -21,7 +21,7 @@ pipeline{
         stage ("run"){
             steps{
                 echo "========Run========"
-                sh "dotnet run --project MassasoftApi/MassasoftApi.csproj"
+                sh "dotnet run --project MassasoftApiTest/MassasoftApiTest.csproj"
             }
         }
 
