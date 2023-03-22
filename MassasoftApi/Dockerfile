@@ -32,7 +32,7 @@ RUN apt-get update && \
     ln -s /app/flyway-7.15.0/flyway /usr/local/bin/flyway
 
 # Copy the database migration scripts
-COPY db/migrations /migrations
+COPY MassasoftApi/db/migrations /migrations
 
 # Set the entry point
 ENTRYPOINT ["dotnet", "MassasoftApi.csproj"]
