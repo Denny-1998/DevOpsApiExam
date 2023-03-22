@@ -4,11 +4,15 @@ FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build-env
 # Set the working directory
 WORKDIR /app
 
-## Copy the project file
-#COPY MassasoftApiTest/MassasoftApiTest.csproj .
+# Copy the project file
+COPY MassasoftApiTest/MassasoftApiTest.csproj ./MassasoftApiTest
+
+WORKDIR /app/MassasoftApiTest
 
 # Restore packages
 RUN dotnet restore
+
+WORKDIR /app
 
 # Copy the rest of the code
 COPY . .
