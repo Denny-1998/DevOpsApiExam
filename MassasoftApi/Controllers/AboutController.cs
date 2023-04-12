@@ -1,5 +1,6 @@
 using MassasoftApi.Model;
 using Microsoft.AspNetCore.Mvc;
+using MassasoftApi.Services;
 
 namespace MassasoftApi.Controllers
 {
@@ -8,13 +9,31 @@ namespace MassasoftApi.Controllers
     public class AboutController : ControllerBase
     {
 
+        private readonly IMailService mailService;
+        public AboutController(IMailService mailService)
+        {
+            this.mailService = mailService;
+        }
+
+
+
+
         [HttpPost(Name = "send message")]
         public async Task<ActionResult> SendMessage(MessageDTO request)
         {
             Message message = new Message(request.Sender, request.Subject, request.Message);
 
-            return Ok("email sent.");
-        }
 
+
+            try
+            {
+                await mailService.SendEmailAsync(message);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }
