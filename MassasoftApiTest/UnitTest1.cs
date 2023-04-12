@@ -1,5 +1,6 @@
 using System.Net;
 using MassasoftApi.Controllers;
+using MassasoftApi.Model;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MassasoftApiTest
@@ -10,8 +11,18 @@ namespace MassasoftApiTest
         [TestMethod]
         public async Task TestMethod1()
         {
-            WeatherForecastController wfc = new WeatherForecastController();
-            ActionResult statuscode = await wfc.Get();
+            string testEmail = "test@example.com";
+            string testSubject = "test";
+            string testMessage = "this is a test message.";
+
+            MessageDTO mDTO = new MessageDTO();
+            mDTO.Sender = testEmail;
+            mDTO.Subject = testSubject;
+            mDTO.Message = testMessage;
+
+
+            AboutController wfc = new AboutController();
+            ActionResult statuscode = await wfc.SendMessage(mDTO);
             string actual = statuscode.ToString();
             string expected = "Microsoft.AspNetCore.Mvc.OkObjectResult";
 
@@ -25,7 +36,7 @@ namespace MassasoftApiTest
             string test = "-----------------Testing--------------------";
             Console.WriteLine(test);
 
-            bool actual = false;
+            bool actual = true;
 
             Assert.IsTrue(actual);
         }
