@@ -10,9 +10,9 @@ namespace MassasoftApi.Controllers
     {
 
         private readonly IMailService mailService;
-        public AboutController(IMailService mailService)
+        public AboutController()
         {
-            this.mailService = mailService;
+            this.mailService = new MailService();
         }
 
 
