@@ -1,9 +1,9 @@
 using System.Net;
-using MassasoftApi.Controllers;
-using MassasoftApi.Model;
+using DevOpsExamApi.Controllers;
+using DevOpsExamApi.Model;
 using Microsoft.AspNetCore.Mvc;
 
-namespace MassasoftApiTest
+namespace DevOpsApiTest
 {
     [TestClass]
     public class UnitTest1
