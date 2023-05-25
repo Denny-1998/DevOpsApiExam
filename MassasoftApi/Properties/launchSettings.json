@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "MassasoftApi": {
+    "DevOpsExamApi": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

@@ -1,4 +1,4 @@
-﻿namespace MassasoftApi.Model
+﻿namespace DevOpsExamApi.Model
 {
     public class MailSettings
     {

@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32804.467
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MassasoftApi", "MassasoftApi\MassasoftApi.csproj", "{A9F83345-4EE8-4C97-A2A6-D88E8C0A8E3C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevOpsApi", "MassasoftApi\DevOpsApi.csproj", "{A9F83345-4EE8-4C97-A2A6-D88E8C0A8E3C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MassasoftApiTest", "MassasoftApiTest\MassasoftApiTest.csproj", "{53ED501F-0CED-4190-ABF9-56F571ABD1E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MassasoftApiTest", "MassasoftApiTest\MassasoftApiTest.csproj", "{53ED501F-0CED-4190-ABF9-56F571ABD1E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

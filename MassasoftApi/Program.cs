@@ -1,7 +1,11 @@
-using MassasoftApi.Model;
+using System.Configuration;
+using DevOpsApi.Model;
+using DevOpsApi.Services;
+using DevOpsExamApi.Model;
 using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
+
 
 // Add services to the container.
 
@@ -9,6 +13,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+FileReader fr = new FileReader();
+builder.Services.Add(new ServiceDescriptor(typeof(DBcontext), new DBcontext(fr.getConnectionString())));
 
 
 

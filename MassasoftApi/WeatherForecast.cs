@@ -1,4 +1,4 @@
-namespace MassasoftApi
+namespace DevOpsExamApi
 {
     public class WeatherForecast
     {

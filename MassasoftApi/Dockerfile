@@ -9,7 +9,7 @@ COPY . .
 
 RUN dotnet dev-certs https
 
-RUN dotnet run MassasoftApi/MassasoftApi.csproj
+RUN dotnet run DevOpsExamApi/DevOpsExamApi.csproj
 
 
 
@@ -21,7 +21,7 @@ RUN dotnet run MassasoftApi/MassasoftApi.csproj
     #ln -s /app/flyway-7.15.0/flyway /usr/local/bin/flyway
 #
 ## Copy the database migration scripts
-##COPY ./MassasoftApi/db/migrations /migrations
+##COPY ./DevOpsExamApi/db/migrations /migrations
 
 # Set the entry point
-ENTRYPOINT ["dotnet", "MassasoftApi.dll"]
+ENTRYPOINT ["dotnet", "DevOpsExamApi.dll"]

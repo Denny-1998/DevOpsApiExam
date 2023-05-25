@@ -5,7 +5,7 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: Massasoft
+      MYSQL_DATABASE: DevOpsExam
       MYSQL_USER: massasoftuser
       MYSQL_PASSWORD: password
     ports:
@@ -18,8 +18,8 @@ services:
       - "7077:7077"
     depends_on:
       - db
-    command: ["dotnet", "MassasoftApi.csproj"]
+    command: ["dotnet", "DevOpsExamApi.csproj"]
     environment:
-      - ConnectionStrings__Default=server=db;database=Massasoft;uid=massasoftuser;password=password
+      - ConnectionStrings__Default=server=db;database=DevOpsExam;uid=massasoftuser;password=password
 volumes:
   db_data:

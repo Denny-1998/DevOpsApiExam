@@ -9,20 +9,20 @@ pipeline{
         stage("start docker containers"){
             steps{
                 echo "========starting up docker environment========"
-                sh "docker-compose -f MassasoftApi/docker-compose.yml up -d"
+                sh "docker-compose -f DevOpsExamApi/docker-compose.yml up -d"
             }
         }
 /*        
         stage ("run"){
             steps{
                 echo "========Run========"
-                sh "dotnet run --project MassasoftApiTest/MassasoftApiTest.csproj"
+                sh "dotnet run --project DevOpsExamApiTest/DevOpsExamApiTest.csproj"
             }
         }
         
         stage('Migrate') {
             steps {
-                sh 'docker run --rm --network="host" -v "$(pwd)/db/migrations:/flyway/sql" flyway/flyway:7.15.0 -user=massasoftuser -password=password -url=jdbc:mysql://localhost:3306/Massasoft -locations=filesystem:/flyway/sql migrate'
+                sh 'docker run --rm --network="host" -v "$(pwd)/db/migrations:/flyway/sql" flyway/flyway:7.15.0 -user=massasoftuser -password=password -url=jdbc:mysql://localhost:3306/DevOpsExam -locations=filesystem:/flyway/sql migrate'
             }
         }
         */
@@ -30,7 +30,7 @@ pipeline{
     post {
         cleanup {
             echo "cleaning up the docker environment"
-            sh script: "docker-compose -f MassasoftApi/docker-compose.yml down", returnStatus:true
+            sh script: "docker-compose -f DevOpsExamApi/docker-compose.yml down", returnStatus:true
         }
     }
 }

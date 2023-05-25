@@ -1,6 +1,6 @@
-﻿using MassasoftApi.Model;
+﻿using DevOpsExamApi.Model;
 
-namespace MassasoftApi.Services
+namespace DevOpsExamApi.Services
 {
     public interface IMailService
     {

@@ -1,8 +1,9 @@
-using MassasoftApi.Model;
+using DevOpsExamApi.Model;
 using Microsoft.AspNetCore.Mvc;
-using MassasoftApi.Services;
+using DevOpsExamApi.Services;
+using DevOpsApi.Services;
 
-namespace MassasoftApi.Controllers
+namespace DevOpsExamApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -13,6 +14,14 @@ namespace MassasoftApi.Controllers
         public AboutController()
         {
             this.mailService = new MailService();
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> DebugConnectionString()
+        {
+            FileReader fr = new FileReader();
+            string sof = fr.getConnectionString();
+            return Ok(sof);
         }
 
 

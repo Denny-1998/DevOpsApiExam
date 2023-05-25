@@ -1,10 +1,10 @@
 ﻿using MailKit.Net.Smtp;
 using MailKit.Security;
-using MassasoftApi.Model;
+using DevOpsExamApi.Model;
 using Microsoft.Extensions.Options;
 using MimeKit;
 
-namespace MassasoftApi.Services
+namespace DevOpsExamApi.Services
 {
     public class MailService : IMailService
     {

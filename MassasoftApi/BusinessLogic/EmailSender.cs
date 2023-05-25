@@ -1,6 +1,6 @@
-﻿using MassasoftApi.Model;
+﻿using DevOpsExamApi.Model;
 
-namespace MassasoftApi.BusinessLogic
+namespace DevOpsExamApi.BusinessLogic
 {
     public class EmailSender
     {
