@@ -13,8 +13,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-FileReader fr = new FileReader();
-builder.Services.Add(new ServiceDescriptor(typeof(DBcontext), new DBcontext(fr.getConnectionString())));
+
+builder.Services.Add(new ServiceDescriptor(typeof(DBcontext), new DBcontext()));
 
 
 

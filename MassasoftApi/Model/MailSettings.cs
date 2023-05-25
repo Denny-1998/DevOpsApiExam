@@ -13,10 +13,10 @@
     }
          */
 
-        public string Mail = "testingstuffeasv@gmail.com";
-        public string DisplayName = "Denny EASV";
-        public string Password = "GP81Typ3XVN5wjd4";
-        public string Host = "smtp-relay.sendinblue.com";
+        public string Mail = "example@gmail.com";
+        public string DisplayName = "Test";
+        public string Password = "XXX";
+        public string Host = "smtp.gmail.com";
         public int Port = 587;
         
     }
