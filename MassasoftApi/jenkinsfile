@@ -9,14 +9,14 @@ pipeline{
         stage("start docker containers"){
             steps{
                 echo "========starting up docker environment========"
-                sh "docker-compose -f DevOpsExamApi/docker-compose.yml up -d"
+                sh "docker-compose -f MassasoftApi/docker-compose.yml up -d"
             }
         }
 /*        
         stage ("run"){
             steps{
                 echo "========Run========"
-                sh "dotnet run --project DevOpsExamApiTest/DevOpsExamApiTest.csproj"
+                sh "dotnet run --project MassasoftApiTest/DevOpsExamApiTest.csproj"
             }
         }
         
