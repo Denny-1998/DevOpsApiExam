@@ -27,7 +27,7 @@ pipeline{
     post {
         cleanup {
             echo "cleaning up the docker environment"
-            sh script: "docker-compose -f DevOpsExamApi/docker-compose.yml down", returnStatus:true
+            sh script: "docker-compose -f MassasoftApi/docker-compose.yml down", returnStatus:true
         }
     }
 }
