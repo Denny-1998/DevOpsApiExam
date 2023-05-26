@@ -16,8 +16,8 @@ services:
   k6:
     image: loadimpact/k6
     volumes:
-      - ./path/to/k6/scripts:/scripts
-    command: run /scripts/api-test.js
+      - /k6-script.js:/scripts
+    command: run /scripts/k6-script.js
 
 
   web:
