@@ -17,7 +17,7 @@ pipeline{
         stage("Run k6 Tests") {
             steps {
                 script {
-                    docker.image('loadimpact/k6').inside('-v path/to/k6/scripts:/scripts') {
+                    docker.image('loadimpact/k6').inside('-v /K6scripts:/scripts') {
                         sh 'k6 run /scripts/k6-script.js'
                     }
                 }
