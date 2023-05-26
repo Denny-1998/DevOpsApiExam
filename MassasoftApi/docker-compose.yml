@@ -12,6 +12,14 @@ services:
       - "3306:3306"
     volumes:
       - db_data:/var/lib/mysql
+
+  k6:
+    image: loadimpact/k6
+    volumes:
+      - ./path/to/k6/scripts:/scripts
+    command: run /scripts/api-test.js
+
+
   web:
     build: .
     ports:

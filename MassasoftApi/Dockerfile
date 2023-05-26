@@ -4,6 +4,14 @@ FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build-env
 # Set the working directory
 WORKDIR /app
 
+# Install k6
+RUN apt-get update && apt-get install -y \
+    ca-certificates \
+    && apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 379CE192D401AB61 \
+    && echo "deb https://dl.bintray.com/loadimpact/deb stable main" | tee -a /etc/apt/sources.list \
+    && apt-get update && apt-get install -y k6
+
+
 # Copy the rest of the code
 COPY . .
 
@@ -13,15 +21,6 @@ RUN dotnet run DevOpsExamApi/DevOpsExamApi.csproj
 
 
 
-
-## Install Flyway
-#RUN apt-get update && \
-    #apt-get install -y wget && \
-    #wget -qO- https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/7.15.0/flyway-commandline-7.15.0-linux-x64.tar.gz | tar xvz && \
-    #ln -s /app/flyway-7.15.0/flyway /usr/local/bin/flyway
-#
-## Copy the database migration scripts
-##COPY ./DevOpsExamApi/db/migrations /migrations
 
 # Set the entry point
 ENTRYPOINT ["dotnet", "DevOpsExamApi.dll"]

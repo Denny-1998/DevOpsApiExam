@@ -12,20 +12,12 @@ pipeline{
                 sh "docker-compose -f MassasoftApi/docker-compose.yml up -d"
             }
         }
-/*        
-        stage ("run"){
-            steps{
-                echo "========Run========"
-                sh "dotnet run --project MassasoftApiTest/DevOpsExamApiTest.csproj"
-            }
-        }
-        
-        stage('Migrate') {
+
+        stage('Run k6 Tests') {
             steps {
-                sh 'docker run --rm --network="host" -v "$(pwd)/db/migrations:/flyway/sql" flyway/flyway:7.15.0 -user=massasoftuser -password=password -url=jdbc:mysql://localhost:3306/DevOpsExam -locations=filesystem:/flyway/sql migrate'
+                sh 'k6 run ./k6-script.js
             }
         }
-        */
     }
     post {
         cleanup {
