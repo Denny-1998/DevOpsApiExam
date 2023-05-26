@@ -5,17 +5,20 @@ pipeline{
     }
     stages{
         
-        
-        stage("start docker containers"){
-            steps{
-                echo "========starting up docker environment========"
+
+        stage("Start Docker Containers") {
+            steps {
+                echo "======== Starting up docker environment ========"
                 sh "docker-compose -f MassasoftApi/docker-compose.yml up -d"
             }
         }
 
         stage('Run k6 Tests') {
             steps {
-                sh 'k6 run k6-script.js'
+            script {
+                docker.image('loadimpact/k6').inside('-v path/to/k6/scripts:/scripts') {
+                sh 'k6 run /scripts/k6-script.js'
+                }
             }
         }
     }
