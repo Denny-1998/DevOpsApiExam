@@ -9,7 +9,8 @@ pipeline{
         stage("Start Docker Containers") {
             steps {
                 echo "======== Starting up docker environment ========"
-                sh "docker-compose -f MassasoftApi/docker-compose.yml up -d"
+                sh "docker-compose -f MassasoftApi/docker-compose.yml up -d --build"
+
             }
         }
 
