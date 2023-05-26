@@ -17,11 +17,12 @@ pipeline{
             steps {
             script {
                 docker.image('loadimpact/k6').inside('-v path/to/k6/scripts:/scripts') {
-                sh 'k6 run /scripts/k6-script.js'
+                    sh 'k6 run /scripts/k6-script.js'
                 }
             }
         }
     }
+}
     post {
         cleanup {
             echo "cleaning up the docker environment"
