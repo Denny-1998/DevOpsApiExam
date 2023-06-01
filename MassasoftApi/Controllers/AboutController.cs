@@ -42,7 +42,8 @@ namespace DevOpsExamApi.Controllers
                 dBcontext.insertMessage(message);
 
                 //send message to email
-                await mailService.SendEmailAsync(message);
+                //commented out because of mail api key
+                //await mailService.SendEmailAsync(message);
 
                 //return 200
                 return Ok();
